@@ -1,0 +1,67 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MPT-Registro</title>
+    <link rel="stylesheet" href="registro/registro.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="register-container">
+      <!-- Botón para volver al landing -->
+      <a href="index.html" class="back-button">← Volver</a>
+
+      <div class="register-box">
+        <!-- Parte izquierda: formulario -->
+        <div class="register-form">
+          <h2>Registrate</h2>
+          <form id="registerForm">
+            <div class="form-group input-wrapper">
+              <img src="registro/persona.svg" alt="user icon" class="input-icon" />
+              <input type="text" id="nombres" name="nombres" placeholder="Nombres" required />
+            </div>
+      
+            <div class="form-group input-wrapper">
+              <img src="registro/persona.svg" alt="user icon" class="input-icon" />
+              <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required />
+            </div>
+      
+            <div class="form-group input-wrapper">
+              <img src="registro/persona.svg" alt="user icon" class="input-icon" />
+              <input type="text" id="telefono" name="telefono" placeholder="DNI" required />
+            </div>
+      
+            <div class="form-group input-wrapper">
+              <img src="registro/correo.svg" alt="email icon" class="input-icon" />
+              <input type="email" id="email" name="email" placeholder="Email" required />
+            </div>
+      
+            <div class="form-group input-wrapper">
+              <img src="registro/candado.svg" alt="lock icon" class="input-icon" />
+              <input type="password" id="password" name="password" placeholder="Contraseña" required />
+            </div>
+      
+            <button type="submit" class="register-btn">Registrarse</button>
+          </form>
+        </div>
+      
+        <!-- Parte derecha: bienvenida -->
+        <div class="welcome-panel">
+          <h1>Hola, bienvenido</h1>
+          <p>¿Ya tienes una cuenta?</p>
+          <a href="inses.html" class="login-btn">Iniciar sesión</a>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+    <script src="auth.js"></script>
+  </body>
+</html>
