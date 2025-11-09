@@ -32,6 +32,14 @@
         font-family: 'Montserrat', sans-serif;
         font-size: 1.8rem;
       }
+      
+      .logo {
+        width: 40px;
+        height: 40px;
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+
       nav ul {
         list-style: none;
         display: flex;
