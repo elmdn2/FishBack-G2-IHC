@@ -44,10 +44,10 @@
         transition: color 0.3s;
       }
       nav a:hover {
-        color: var(--celeste);
+        text-decoration: underline;
       }
       .hero {
-        background: linear-gradient(rgba(0, 79, 115, 0.7), rgba(0, 79, 115, 0.7)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80');
+        background: linear-gradient(rgba(0, 79, 115, 0.7), rgba(0, 79, 115, 0.7)), url("playa.avif");
         background-size: cover;
         background-position: center;
         color: white;
@@ -72,9 +72,11 @@
         font-weight: 600;
         cursor: pointer;
         transition: 0.3s;
+        text-decoration: none;
       }
       .cta-btn:hover {
         background-color: #e08f1e;
+        text-decoration: underline;
       }
       section {
         padding: 4rem 2rem;
