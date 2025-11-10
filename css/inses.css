@@ -138,6 +138,37 @@ body {
   background-color: #bedd34;
 }
 
+.checkbox-container {
+  display: flex;
+  align-items: center; /* centra verticalmente */
+  gap: 8px;           /* espacio entre checkbox y texto */
+  color: #ffffff;     /* color del texto */
+  font-family: "Montserrat", Bold;
+  font-size: 14px;
+  cursor: pointer;    /* cambia cursor al pasar sobre todo el label */
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #ffffff; /* color del check */
+  margin: 0;
+  flex-shrink: 0;        /* evita que cambie tamaño */
+}
+
+.check-text {
+  line-height: 1;        /* asegura que el texto esté alineado con el checkbox */
+}
+
+
+
+.recordar-sesion label {
+  color: #ffffff; /* Cambia este valor por el color que quieras */
+  font-family: "Montserrat", Bold;
+  font-size: 14px;
+}
+
+
 .register-image {
   flex: 1;
   min-height: 500px;
