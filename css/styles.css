@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
         --azul-marino: #004F73;
         --celeste: #4BBFE0;
