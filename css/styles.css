@@ -141,15 +141,126 @@
         left: 0;
         color: var(--verde);
       }
-      footer {
-        background: var(--azul-marino);
-        color: white;
-        padding: 2rem;
-        text-align: center;
+
+      .pie-pagina {
+        background-color: #042d41;
+        color: #fff;
+        padding: 3rem 1rem 1rem 1rem;
+        font-family: 'Montserrat', sans-serif;
       }
-      footer p {
+
+      .pie-pagina__contenedor {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 2rem;
+      }
+
+      .pie-pagina__info,
+      .pie-pagina__navegacion,
+      .pie-pagina__contacto-info {
+        flex: 1 1 250px;
+      }
+
+      .pie-pagina__logo {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .logo-imagen-pie {
+        width: 40px;
+        height: auto;
+        margin-right: 0.5rem;
+      }
+
+      .logo__resaltado {
+        color: #1c8f72;
+        margin-left: 0.2rem;
+      }
+
+      .pie-pagina__descripcion {
+        margin: 0.5rem 0 1rem 0;
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      .pie-pagina__redes a {
+        margin-right: 0.5rem;
+        color: #fff;
+        font-size: 2rem;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .pie-pagina__redes a:hover {
+        color: #1c8f72;
+      }
+
+      .pie-pagina__subtitulo {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: #fff;
+        border-bottom: 2px solid #1c8f72;
+        display: inline-block;
+      }
+
+      .pie-pagina__lista-enlaces {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .pie-pagina__lista-enlaces li {
+        margin-bottom: 0.5rem;
+      }
+
+      .pie-pagina__lista-enlaces a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .pie-pagina__lista-enlaces a:hover {
+        color: #1c8f72;
+      }
+
+      .pie-pagina__contacto-info p {
+        margin: 0.3rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
         font-size: 0.9rem;
       }
+
+      .pie-pagina__derechos {
+        border-top: 1px solid #333;
+        margin-top: 2rem;
+        padding-top: 1rem;
+        text-align: center;
+        font-size: 0.8rem;
+        color: #aaa;
+      }
+
+      .pie-pagina__enlaces-legales a {
+        color: #aaa;
+        text-decoration: none;
+        margin: 0 0.5rem;
+      }
+
+      .pie-pagina__enlaces-legales a:hover {
+        color: #1c8f72;
+      }
+
+      .pie-pagina__separador {
+        color: #aaa;
+      }
+
       @media (max-width: 768px) {
         header h1 {
           font-size: 1.4rem;

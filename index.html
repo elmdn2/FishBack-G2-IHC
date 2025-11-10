@@ -1,81 +1,125 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>FishBack - Innovación y trazabilidad para una pesca sostenible</title>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/styles.css" />
-    </head>
- <body>
-    <header>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FishBack - Innovación y trazabilidad para una pesca sostenible</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<header>
 <h1>
   <img src="Images/logo.png" alt="Logo FishBack" class="logo" />
   <span class="titulo-texto">FishBack</span>
 </h1>
 
-      <nav>
-        <ul>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#beneficios">Beneficios</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-          <li><a href="inses.html" class="cta-btn" id="btn-inses">Ingresa</a>
-          </button></li>
-        </ul>
-      </nav>
-    </header>
+<nav>
+  <ul>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#beneficios">Beneficios</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="inses.html" class="cta-btn" id="btn-inses">Ingresa</a></li>
+  </ul>
+</nav>
+</header>
 
-    <section class="hero">
-      <h2>Innovación y trazabilidad para una pesca sostenible</h2>
-      <p>Conecta, monitorea y crece con FishBack: la herramienta digital que impulsa la transparencia y sostenibilidad en el sector pesquero.</p>
-      <a href="registro.html" class="cta-btn" id="btn-registrarse"> Regístrate Ahora </a>
-    </section>
+<section class="hero">
+  <h2>Innovación y trazabilidad para una pesca sostenible</h2>
+  <p>Conecta, monitorea y crece con FishBack: la herramienta digital que impulsa la transparencia y sostenibilidad en el sector pesquero.</p>
+  <a href="registro.html" class="cta-btn" id="btn-registrarse"> Regístrate Ahora </a>
+</section>
 
-    <section id="servicios">
-      <h2 class="section-title">Servicios</h2>
-      <div class="services">
-        <div class="card">
-          <h3>Para Pescadores</h3>
-          <p>Registra tus capturas, consulta zonas autorizadas y recibe alertas sobre vedas activas en tiempo real.</p>
-        </div>
-        <div class="card">
-          <h3>Para Vendedores</h3>
-          <p>Verifica la trazabilidad del producto escaneando códigos QR y gestiona tu inventario de forma eficiente.</p>
-        </div>
-        <div class="card">
-          <h3>Trazabilidad Completa</h3>
-          <p>Desde el mar hasta el mercado, FishBack garantiza la transparencia de cada transacción pesquera.</p>
-        </div>
+<section id="servicios">
+  <h2 class="section-title">Servicios</h2>
+  <div class="services">
+    <div class="card">
+      <h3>Para Pescadores</h3>
+      <p>Registra tus capturas, consulta zonas autorizadas y recibe alertas sobre vedas activas en tiempo real.</p>
+    </div>
+    <div class="card">
+      <h3>Para Vendedores</h3>
+      <p>Verifica la trazabilidad del producto escaneando códigos QR y gestiona tu inventario de forma eficiente.</p>
+    </div>
+    <div class="card">
+      <h3>Trazabilidad Completa</h3>
+      <p>Desde el mar hasta el mercado, FishBack garantiza la transparencia de cada transacción pesquera.</p>
+    </div>
+  </div>
+</section>
+
+<section id="beneficios" class="benefits">
+  <h2 class="section-title">Beneficios</h2>
+  <ul>
+    <li>Acceso rápido y jerárquico a las funciones principales.</li>
+    <li>Flujos secuenciales guiados para reducir errores.</li>
+    <li>Filtros inteligentes y categorización múltiple de datos.</li>
+    <li>Diseño responsivo y accesible en cualquier dispositivo.</li>
+    <li>Promueve la sostenibilidad y la transparencia en la pesca.</li>
+  </ul>
+</section>
+
+<section id="contacto">
+  <h2 class="section-title">Contáctanos</h2>
+  <p>¿Tienes dudas o quieres saber más sobre FishBack? Escríbenos y te responderemos pronto.</p>
+  <form style="max-width:600px;margin:2rem auto;text-align:left;">
+    <label>Nombre</label><br />
+    <input type="text" style="width:100%;padding:0.6rem;margin:0.4rem 0;border-radius:4px;border:1px solid var(--gris);" required /><br />
+    <label>Correo electrónico</label><br />
+    <input type="email" style="width:100%;padding:0.6rem;margin:0.4rem 0;border-radius:4px;border:1px solid var(--gris);" required /><br />
+    <label>Mensaje</label><br />
+    <textarea style="width:100%;padding:0.6rem;margin:0.4rem 0;border-radius:4px;border:1px solid var(--gris);height:120px;" required></textarea><br />
+    <button type="submit" class="cta-btn">Enviar Mensaje</button>
+  </form>
+</section>
+
+<!-- Footer nuevo -->
+<footer class="pie-pagina">
+  <div class="pie-pagina__contenedor contenedor">
+    <div class="pie-pagina__info">
+      <a href="#" class="logo pie-pagina__logo">
+        <img src="Images/logo.png" class="logo-imagen-pie" alt="FishBack Logo" />
+        Fish<span class="logo__resaltado">Back</span>
+      </a>
+      <p class="pie-pagina__descripcion">
+        Innovación y trazabilidad para una pesca sostenible.
+      </p>
+      <div class="pie-pagina__redes">
+        <a href="#" class="pie-pagina__red-social"><i class="bx bxl-facebook-circle"></i></a>
+        <a href="#" class="pie-pagina__red-social"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="pie-pagina__red-social"><i class="bx bxl-instagram-alt"></i></a>
+        <a href="#" class="pie-pagina__red-social"><i class="bx bxl-linkedin-square"></i></a>
       </div>
-    </section>
+    </div>
 
-    <section id="beneficios" class="benefits">
-      <h2 class="section-title">Beneficios</h2>
-      <ul>
-        <li>Acceso rápido y jerárquico a las funciones principales.</li>
-        <li>Flujos secuenciales guiados para reducir errores.</li>
-        <li>Filtros inteligentes y categorización múltiple de datos.</li>
-        <li>Diseño responsivo y accesible en cualquier dispositivo.</li>
-        <li>Promueve la sostenibilidad y la transparencia en la pesca.</li>
+    <div class="pie-pagina__navegacion">
+      <h4 class="pie-pagina__subtitulo">Enlaces Rápidos</h4>
+      <ul class="pie-pagina__lista-enlaces">
+        <li><a href="#servicios" class="pie-pagina__enlace">Servicios</a></li>
+        <li><a href="#beneficios" class="pie-pagina__enlace">Beneficios</a></li>
+        <li><a href="#contacto" class="pie-pagina__enlace">Contacto</a></li>
       </ul>
-    </section>
+    </div>
 
-    <section id="contacto">
-      <h2 class="section-title">Contáctanos</h2>
-      <p>¿Tienes dudas o quieres saber más sobre FishBack? Escríbenos y te responderemos pronto.</p>
-      <form style="max-width:600px;margin:2rem auto;text-align:left;">
-        <label>Nombre</label><br />
-        <input type="text" style="width:100%;padding:0.6rem;margin:0.4rem 0;border-radius:4px;border:1px solid var(--gris);" required /><br />
-        <label>Correo electrónico</label><br />
-        <input type="email" style="width:100%;padding:0.6rem;margin:0.4rem 0;border-radius:4px;border:1px solid var(--gris);" required /><br />
-        <label>Mensaje</label><br />
-        <textarea style="width:100%;padding:0.6rem;margin:0.4rem 0;border-radius:4px;border:1px solid var(--gris);height:120px;" required></textarea><br />
-        <button type="submit" class="cta-btn">Enviar Mensaje</button>
-      </form>
-    </section>
+    <div class="pie-pagina__contacto-info">
+      <h4 class="pie-pagina__subtitulo">Contacto</h4>
+      <p><i class="bx bx-map"></i> Av. Siempre Viva 123, Lima</p>
+      <p><i class="bx bx-phone"></i> +51 987 654 321</p>
+      <p><i class="bx bx-envelope"></i> info@fishback.com</p>
+    </div>
+  </div>
 
-    <footer>
-      <p>© 2025 FishBack — Innovación y trazabilidad para una pesca sostenible.</p>
-    </footer>
-  </body>
+  <div class="pie-pagina__derechos">
+    <div class="pie-pagina__enlaces-legales">
+      <a href="#" class="pie-pagina__enlace-legal">Política de Privacidad</a>
+      <span class="pie-pagina__separador">|</span>
+      <a href="terminos.html" class="pie-pagina__enlace-legal">Términos y Condiciones</a>
+    </div>
+    <p>&copy; <span id="anio-actual"></span> FishBack. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script src="js/footer.js"></script>
+</body>
 </html>
