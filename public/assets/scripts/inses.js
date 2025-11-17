@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     } else {
       // Vuelve al estado original: botón Ingresa
-      userMenu.innerHTML = `<a href="inses.html" class="cta-btn" id="btn-inses">Ingresa</a>`;
+      userMenu.innerHTML = `<a href="public/inses.html" class="cta-btn" id="btn-inses">Ingresa</a>`;
     }
   }
 
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
       bottomBar.style.display = "flex";
 
       // Vuelve al estado original: botón Ingresa
-      userMenu.innerHTML = `<a href="inses.html" class="cta-btn" id="btn-inses">Ingresa</a>`;
+      userMenu.innerHTML = `<a href="public/inses.html" class="cta-btn" id="btn-inses">Ingresa</a>`;
     }
   }
 

@@ -2,8 +2,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MPT - Iniciar Sesión</title>
-    <link rel="stylesheet" href="css/inses.css" />
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="assets/styles/inses.css"/>
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet"
@@ -15,7 +15,7 @@
   </head>
   <body>
     <div class="register-container">
-      <a href="index.html" class="back-button">← Volver</a>
+      <a href="../index.html" class="back-button">← Volver</a>
 
       <div class="register-box">
         <div class="welcome-panel">
@@ -29,7 +29,7 @@
           <form id="registerForm">
             <div class="form-group input-wrapper">
               <img
-                src="Images/persona.svg"
+                src="assets/images/persona.svg"
                 alt="user icon"
                 class="input-icon"
               />
@@ -43,7 +43,7 @@
             </div>
             <div class="form-group input-wrapper">
               <img
-                src="Images/candado.svg"
+                src="assets/images/candado.svg"
                 alt="lock icon"
                 class="input-icon"
               />
@@ -72,19 +72,19 @@
           <div class="social-buttons">
 
           <button class="social-btn">
-          <img src="Images/google.svg" alt="google" />
+          <img src="assets/images/google.svg" alt="google" />
           </button>
 
           <button class="social-btn">
-            <img src="Images/apple.svg" alt="apple" />
+            <img src="assets/images/apple.svg" alt="apple" />
           </button>
 
           <button class="social-btn">
-            <img src="Images/facebook.svg" alt="facebook" />
+            <img src="assets/images/facebook.svg" alt="facebook" />
           </button>
 
           <button class="social-btn">
-            <img src="Images/celular.svg" alt="celular" />
+            <img src="assets/images/celular.svg" alt="celular" />
           </button>
 
   </div>
@@ -119,7 +119,7 @@
           localStorage.setItem("userDNI", dni); // opcional
 
           // Redirigir al index
-          window.location.href = "index.html";
+          window.location.href = "../index.html";
         });
       });
     </script>
