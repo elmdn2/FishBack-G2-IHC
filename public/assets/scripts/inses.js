@@ -1,3 +1,13 @@
+const About_us = document.querySelector("#nosotros")
+
+About_us.addEventListener("click", (s) =>{
+        s.preventDefault();
+        const SectionS = document.querySelector(".nosotrs");
+        SectionS.scrollIntoView({behavior:"smooth"});
+    }
+
+)
+
 document.addEventListener("DOMContentLoaded", () => {
   const userMenu = document.getElementById("user-menu");
 
