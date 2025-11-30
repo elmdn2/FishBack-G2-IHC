@@ -8,6 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="public/assets/styles/styles.css" />
+    <link rel="stylesheet" href="public/assets/styles/menu_toggle.css" />
     <link rel="icon" href="public/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -18,17 +19,19 @@
 </h1>
 
 <nav>
-  <ul>
+  <ul class="menu-horizontal">
     <li><a href="#servicios">Servicios</a></li>
     <li><a href="#beneficios">Beneficios</a></li>
     <li><a href="#nosotros">Nosotros</a></li>
     <li><a href="#contacto">Contacto</a></li>
     <li id="user-menu">
   <a href="public/inses.html" class="cta-btn" id="btn-inses">Ingresa</a>
-</li>
-
-
+  </li>
   </ul>
+  <button class="menu-toggle" aria-label="Abrir menú">
+&#9776;
+<!-- Ícono de hamburguesa -->
+</button>
 </nav>
 </header>
 
@@ -178,5 +181,6 @@
 <script src="public/assets/scripts/footer.js"></script>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 <script src="public/assets/scripts/inses.js"></script>
+<script src="public/assets/scripts/menu_toggle.js"></script>
 </body>
 </html>
