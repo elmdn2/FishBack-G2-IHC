@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Captura - FishBack</title>
+    <link rel="stylesheet" href="assets/styles/registro-captura.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="captura-container">
+      <a href="../index.html" class="back-button">← Volver</a>
+
+      <div class="captura-box">
+        <div class="captura-form">
+          <h2>Registro de Captura</h2>
+          <p class="subtitle">Ingresa los datos de tu pesca para mantener la trazabilidad</p>
+          
+          <form id="capturaForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="especie">Especie</label>
+                <input
+                  type="text"
+                  id="especie"
+                  name="especie"
+                  placeholder="Ej: Anchoveta, Jurel, Caballa"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="cantidad">Cantidad (kg)</label>
+                <input
+                  type="number"
+                  id="cantidad"
+                  name="cantidad"
+                  placeholder="0.0"
+                  min="0.1"
+                  step="0.1"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="zona">Zona de Pesca</label>
+                <input
+                  type="text"
+                  id="zona"
+                  name="zona"
+                  placeholder="Ej: Callao, Pucusana, Chimbote"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="fecha">Fecha de Captura</label>
+                <input
+                  type="date"
+                  id="fecha"
+                  name="fecha"
+                  required
+                />
+              </div>
+
+              <div class="form-group full-width">
+                <label for="observaciones">Observaciones (opcional)</label>
+                <textarea
+                  id="observaciones"
+                  name="observaciones"
+                  placeholder="Condiciones del mar, método de pesca, estado del producto..."
+                  rows="4"
+                ></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="captura-btn">Guardar Captura</button>
+          </form>
+
+          <div class="stats-container">
+            <div class="stat-card">
+              <div class="stat-icon">🐟</div>
+              <p class="stat-label">Trazabilidad completa</p>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">✓</div>
+              <p class="stat-label">Registro verificado</p>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">📊</div>
+              <p class="stat-label">Datos transparentes</p>
+            </div>
+          </div>
+
+          <div class="info-panel">
+            <p><strong>Nota:</strong> La información registrada será visible para compradores verificados y contribuye a la trazabilidad del producto marino.</p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("capturaForm");
+        const fechaInput = document.getElementById("fecha");
+        
+        // Establecer fecha actual por defecto
+        const hoy = new Date().toISOString().split('T')[0];
+        fechaInput.value = hoy;
+        fechaInput.max = hoy;
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const especie = document.getElementById("especie").value.trim();
+          const cantidad = document.getElementById("cantidad").value.trim();
+          const zona = document.getElementById("zona").value.trim();
+          const fecha = document.getElementById("fecha").value;
+          const observaciones = document.getElementById("observaciones").value.trim();
+
+          if (!especie || !cantidad || !zona || !fecha) {
+            alert("Por favor, complete todos los campos obligatorios.");
+            return;
+          }
+
+          if (parseFloat(cantidad) <= 0) {
+            alert("La cantidad debe ser mayor a 0 kg.");
+            return;
+          }
+
+          // Simular guardado exitoso
+          alert(`✓ Captura registrada exitosamente\n\nEspecie: ${especie}\nCantidad: ${cantidad} kg\nZona: ${zona}\nFecha: ${fecha}`);
+          
+          // Limpiar formulario
+          form.reset();
+          fechaInput.value = hoy;
+        });
+      });
+    </script>
+</body>
+</html>

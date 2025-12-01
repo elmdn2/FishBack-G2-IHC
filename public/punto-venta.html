@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Punto de Venta - FishBack</title>
+    <link rel="stylesheet" href="assets/styles/punto-venta.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="punto-venta-container">
+      <a href="registro-captura.html" class="back-button">← Volver</a>
+
+      <div class="punto-venta-box">
+        <div class="header-section">
+          <div class="icon-header">
+            <i class='bx bx-map-pin'></i>
+          </div>
+          <h2>Registro de Punto de Venta</h2>
+          <p class="subtitle">Permite que los compradores te encuentren fácilmente</p>
+        </div>
+
+        <form id="puntoVentaForm">
+          <div class="location-section">
+            <h3>Ubicación de Venta</h3>
+            
+            <div class="location-options">
+              <button type="button" class="option-btn active" id="btn-gps">
+                <i class='bx bx-current-location'></i>
+                <span>Usar mi ubicación actual</span>
+              </button>
+              <button type="button" class="option-btn" id="btn-manual">
+                <i class='bx bx-edit'></i>
+                <span>Ingresar dirección manualmente</span>
+              </button>
+            </div>
+
+            <div id="gps-section" class="input-section active">
+              <div class="info-box">
+                <i class='bx bx-info-circle'></i>
+                <p>Asegúrate de estar en tu punto de venta para obtener la ubicación precisa</p>
+              </div>
+              <button type="button" class="detect-btn" id="btn-detectar">
+                <i class='bx bx-target-lock'></i>
+                Detectar mi ubicación
+              </button>
+              <div id="coords-display" class="coords-display" style="display: none;">
+                <p><strong>Ubicación detectada:</strong></p>
+                <p id="coords-text"></p>
+              </div>
+            </div>
+
+            <div id="manual-section" class="input-section">
+              <div class="form-group">
+                <label for="direccion">Dirección completa</label>
+                <input
+                  type="text"
+                  id="direccion"
+                  name="direccion"
+                  placeholder="Ej: Av. Marina 123, Callao"
+                />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="distrito">Distrito</label>
+                  <input
+                    type="text"
+                    id="distrito"
+                    name="distrito"
+                    placeholder="Ej: Callao"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="referencia">Referencia</label>
+                  <input
+                    type="text"
+                    id="referencia"
+                    name="referencia"
+                    placeholder="Cerca de..."
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="schedule-section">
+            <h3>Horario de Atención</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="hora-inicio">Hora de inicio</label>
+                <input
+                  type="time"
+                  id="hora-inicio"
+                  name="hora-inicio"
+                  value="06:00"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="hora-fin">Hora de cierre</label>
+                <input
+                  type="time"
+                  id="hora-fin"
+                  name="hora-fin"
+                  value="14:00"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Días de atención</label>
+              <div class="days-selector">
+                <label class="day-checkbox">
+                  <input type="checkbox" name="dias" value="lunes" checked />
+                  <span>L</span>
+                </label>
+                <label class="day-checkbox">
+                  <input type="checkbox" name="dias" value="martes" checked />
+                  <span>M</span>
+                </label>
+                <label class="day-checkbox">
+                  <input type="checkbox" name="dias" value="miercoles" checked />
+                  <span>M</span>
+                </label>
+                <label class="day-checkbox">
+                  <input type="checkbox" name="dias" value="jueves" checked />
+                  <span>J</span>
+                </label>
+                <label class="day-checkbox">
+                  <input type="checkbox" name="dias" value="viernes" checked />
+                  <span>V</span>
+                </label>
+                <label class="day-checkbox">
+                  <input type="checkbox" name="dias" value="sabado" checked />
+                  <span>S</span>
+                </label>
+                <label class="day-checkbox">
+                  <input type="checkbox" name="dias" value="domingo" />
+                  <span>D</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="additional-section">
+            <h3>Información Adicional</h3>
+            <div class="form-group">
+              <label for="contacto">Teléfono de contacto</label>
+              <input
+                type="tel"
+                id="contacto"
+                name="contacto"
+                placeholder="999 999 999"
+                pattern="[0-9]{9}"
+              />
+            </div>
+            <div class="form-group">
+              <label for="descripcion">Descripción del punto de venta (opcional)</label>
+              <textarea
+                id="descripcion"
+                name="descripcion"
+                placeholder="Ej: Puesto en terminal pesquero, venta al por mayor y menor..."
+                rows="3"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button type="submit" class="submit-btn">
+              <i class='bx bx-check-circle'></i>
+              Confirmar Punto de Venta
+            </button>
+          </div>
+        </form>
+
+        <div class="benefits-footer">
+          <div class="benefit-item">
+            <i class='bx bx-map'></i>
+            <span>Visible en mapa general</span>
+          </div>
+          <div class="benefit-item">
+            <i class='bx bx-user-check'></i>
+            <span>Accesible para compradores</span>
+          </div>
+          <div class="benefit-item">
+            <i class='bx bx-time-five'></i>
+            <span>Horarios actualizados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("puntoVentaForm");
+        const btnGps = document.getElementById("btn-gps");
+        const btnManual = document.getElementById("btn-manual");
+        const btnDetectar = document.getElementById("btn-detectar");
+        const gpsSection = document.getElementById("gps-section");
+        const manualSection = document.getElementById("manual-section");
+        const coordsDisplay = document.getElementById("coords-display");
+        const coordsText = document.getElementById("coords-text");
+
+        let ubicacionActual = null;
+
+        // Cambiar entre GPS y manual
+        btnGps.addEventListener("click", () => {
+          btnGps.classList.add("active");
+          btnManual.classList.remove("active");
+          gpsSection.classList.add("active");
+          manualSection.classList.remove("active");
+        });
+
+        btnManual.addEventListener("click", () => {
+          btnManual.classList.add("active");
+          btnGps.classList.remove("active");
+          manualSection.classList.add("active");
+          gpsSection.classList.remove("active");
+        });
+
+        // Detectar ubicación GPS
+        btnDetectar.addEventListener("click", () => {
+          if ("geolocation" in navigator) {
+            btnDetectar.innerHTML = '<i class="bx bx-loader-alt bx-spin"></i> Detectando...';
+            btnDetectar.disabled = true;
+
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                ubicacionActual = {
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude
+                };
+                coordsText.textContent = `Lat: ${ubicacionActual.lat.toFixed(6)}, Lng: ${ubicacionActual.lng.toFixed(6)}`;
+                coordsDisplay.style.display = "block";
+                btnDetectar.innerHTML = '<i class="bx bx-check"></i> Ubicación detectada';
+                btnDetectar.classList.add("success");
+              },
+              (error) => {
+                alert("No se pudo obtener tu ubicación. Por favor, verifica los permisos del navegador.");
+                btnDetectar.innerHTML = '<i class="bx bx-target-lock"></i> Detectar mi ubicación';
+                btnDetectar.disabled = false;
+              }
+            );
+          } else {
+            alert("Tu navegador no soporta geolocalización.");
+          }
+        });
+
+        // Enviar formulario
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const usoGps = btnGps.classList.contains("active");
+          const horaInicio = document.getElementById("hora-inicio").value;
+          const horaFin = document.getElementById("hora-fin").value;
+          const diasSeleccionados = Array.from(document.querySelectorAll('input[name="dias"]:checked'))
+            .map(cb => cb.value);
+
+          if (diasSeleccionados.length === 0) {
+            alert("Por favor, selecciona al menos un día de atención.");
+            return;
+          }
+
+          if (usoGps && !ubicacionActual) {
+            alert("Por favor, detecta tu ubicación GPS primero.");
+            return;
+          }
+
+          if (!usoGps) {
+            const direccion = document.getElementById("direccion").value.trim();
+            const distrito = document.getElementById("distrito").value.trim();
+            if (!direccion || !distrito) {
+              alert("Por favor, completa la dirección y el distrito.");
+              return;
+            }
+          }
+
+          // Simular registro exitoso
+          const mensaje = usoGps 
+            ? `✓ Punto de venta registrado exitosamente\n\nUbicación: GPS (${ubicacionActual.lat.toFixed(4)}, ${ubicacionActual.lng.toFixed(4)})\nHorario: ${horaInicio} - ${horaFin}\nDías: ${diasSeleccionados.join(", ")}\n\nTu ubicación ya está visible en el mapa general.`
+            : `✓ Punto de venta registrado exitosamente\n\nDirección: ${document.getElementById("direccion").value}\nHorario: ${horaInicio} - ${horaFin}\nDías: ${diasSeleccionados.join(", ")}\n\nTu ubicación ya está visible en el mapa general.`;
+
+          alert(mensaje);
+          
+          // Redirigir o limpiar
+          window.location.href = "../index.html";
+        });
+      });
+    </script>
+</body>
+</html>

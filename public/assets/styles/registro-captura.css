@@ -1,0 +1,268 @@
+body {
+  background-image: url("playa.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.captura-container {
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  top: -45px;
+  left: 0;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 16px;
+  transition: opacity 0.3s;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: "Montserrat", Bold;
+}
+
+.back-button:hover {
+  opacity: 0.8;
+  background: rgba(175, 173, 173, 0.329);
+}
+
+.captura-box {
+  background: linear-gradient(135deg, #004F73 0%, #10a7c2 100%);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.captura-form {
+  width: 100%;
+}
+
+.captura-form h2 {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 32px;
+  text-align: center;
+  font-family: "Montserrat", Bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+  color: #ffffff;
+  margin-bottom: 35px;
+  font-size: 16px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  opacity: 0.95;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid transparent;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.3s;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #6BBF59;
+  outline: none;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(107, 191, 89, 0.2);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.captura-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #6BBF59 0%, #4a9942 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s;
+  font-family: "Montserrat", Bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(107, 191, 89, 0.4);
+}
+
+.captura-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(107, 191, 89, 0.6);
+  background: linear-gradient(135deg, #7dd164 0%, #5bb04f 100%);
+}
+
+.captura-btn:active {
+  transform: translateY(0);
+}
+
+.info-panel {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid #F5A623;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.info-panel p {
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.info-panel strong {
+  color: #F5A623;
+  font-family: "Montserrat", Bold;
+}
+
+.welcome-panel {
+  display: none;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+  padding-top: 25px;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-card {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+.stat-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  color: #ffffff;
+  font-size: 12px;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .captura-box {
+    padding: 30px 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .captura-form h2 {
+    font-size: 26px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+
+  .back-button {
+    top: -35px;
+  }
+}
+
+@media (max-width: 576px) {
+  .captura-container {
+    max-width: 100%;
+  }
+
+  .captura-box {
+    padding: 25px 15px;
+  }
+
+  .captura-form h2 {
+    font-size: 22px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .captura-btn {
+    font-size: 18px;
+    padding: 14px;
+  }
+
+  .back-button {
+    font-size: 14px;
+    top: -30px;
+  }
+}
