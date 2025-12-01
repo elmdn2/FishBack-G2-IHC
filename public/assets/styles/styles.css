@@ -486,3 +486,194 @@ html {
   font-family: "Montserrat", Medium;
 }
 
+/* ======================
+   SECCIÓN REGULACIONES PESQUERAS
+====================== */
+.regulaciones {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.regulaciones h2.section-title {
+  font-size: 2rem;
+  color: var(--azul-marino);
+  margin-bottom: 1rem;
+}
+
+.regulaciones p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--texto-oscuro);
+  margin-bottom: 2rem;
+}
+
+.regulaciones .cta-btn {
+  background-color: var(--naranja);
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.regulaciones .cta-btn:hover {
+  background-color: #e08f1e;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .regulaciones {
+    padding: 2rem 1rem;
+  }
+
+  .regulaciones h2.section-title {
+    font-size: 1.7rem;
+  }
+
+  .regulaciones p {
+    font-size: 1rem;
+  }
+}
+
+/* ======================
+   SECCIÓN REGULACIONES
+====================== */
+.regulaciones {
+  padding: 3rem 1rem;
+  background-color: #f4f7f8;
+  text-align: center;
+}
+
+.regulaciones .section-title {
+  font-size: 2.2rem;
+  color: #1f2a38;
+  margin-bottom: 1rem;
+}
+
+.regulaciones-intro {
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  color: #3b4a57;
+}
+
+/* Grid de tarjetas */
+.regulaciones-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+/* Tarjetas */
+.reg-card {
+  position: relative;
+  background-color: #ffffff;
+  padding: 2rem 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.reg-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.reg-card.procedimientos {
+  background-color: #e0d4fd;
+  color: #5a3e9e;
+}
+
+/* Header de tarjeta con icono */
+.reg-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.reg-card-header i {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Colores por tipo de tarjeta */
+.reg-card.vedas {
+  background-color: #d0f0fd;
+  color: #05668d;
+}
+.reg-card.tallas {
+  background-color: #ffe1a8;
+  color: #e07b39;
+}
+.reg-card.permisos {
+  background-color: #d9f7be;
+  color: #3a7d44;
+}
+.reg-card.buenas-practicas {
+  background-color: #fcd3e1;
+  color: #b53f6c;
+}
+.reg-card.sanciones {
+  background-color: #f9d6d5;
+  color: #c53030;
+}
+
+/* Títulos y párrafos */
+.reg-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.reg-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .regulaciones {
+    padding: 2rem 1rem;
+  }
+
+  .reg-card {
+    max-width: 90%;
+  }
+}
+
+.back-button {
+  text-align: left;
+  margin: 2rem 0; /* margen arriba y abajo */
+  padding-left: 1.7rem; /* separa del borde izquierdo */
+}
+
+.back-button .cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #2b7a78;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.back-button .cta-btn:hover {
+  background-color: #3aafa9;
+}
