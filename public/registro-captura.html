@@ -82,6 +82,13 @@
               </div>
             </div>
 
+            <div class="file-upload-wrapper">
+                <button type="button" class="file-btn">Agregar imágenes</button>
+                <input type="file" class="file-input" multiple accept="image/*" />
+                <div class="file-preview"></div>
+                <div class="file-names">Ningún archivo seleccionado</div>
+            </div>
+
             <button type="submit" class="captura-btn">Guardar Captura</button>
           </form>
 
@@ -110,42 +117,98 @@
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const form = document.getElementById("capturaForm");
-        const fechaInput = document.getElementById("fecha");
-        
-        // Establecer fecha actual por defecto
-        const hoy = new Date().toISOString().split('T')[0];
-        fechaInput.value = hoy;
-        fechaInput.max = hoy;
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("capturaForm");
+  const fechaInput = document.getElementById("fecha");
+  
+  // Establecer fecha actual por defecto
+  const hoy = new Date().toISOString().split('T')[0];
+  fechaInput.value = hoy;
+  fechaInput.max = hoy;
 
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
+  // --- Archivo e imágenes ---
+  const fileInput = document.querySelector('.file-input');
+  const fileBtn = document.querySelector('.file-btn');
+  const filePreview = document.querySelector('.file-preview');
+  const fileNames = document.querySelector('.file-names');
 
-          const especie = document.getElementById("especie").value.trim();
-          const cantidad = document.getElementById("cantidad").value.trim();
-          const zona = document.getElementById("zona").value.trim();
-          const fecha = document.getElementById("fecha").value;
-          const observaciones = document.getElementById("observaciones").value.trim();
+  fileBtn.addEventListener('click', () => fileInput.click());
 
-          if (!especie || !cantidad || !zona || !fecha) {
-            alert("Por favor, complete todos los campos obligatorios.");
-            return;
-          }
+  fileInput.addEventListener('change', () => {
+    filePreview.innerHTML = '';
+    
+    if (fileInput.files.length === 0) {
+      fileNames.textContent = "Ningún archivo seleccionado";
+      return;
+    }
 
-          if (parseFloat(cantidad) <= 0) {
-            alert("La cantidad debe ser mayor a 0 kg.");
-            return;
-          }
+    const filesArray = Array.from(fileInput.files);
+    fileNames.textContent = `${filesArray.length} archivo(s) seleccionado(s)`;
 
-          // Simular guardado exitoso
-          alert(`✓ Captura registrada exitosamente\n\nEspecie: ${especie}\nCantidad: ${cantidad} kg\nZona: ${zona}\nFecha: ${fecha}`);
-          
-          // Limpiar formulario
-          form.reset();
-          fechaInput.value = hoy;
-        });
-      });
-    </script>
+    filesArray.forEach((file) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const previewItem = document.createElement('div');
+        previewItem.className = 'preview-item';
+
+        const img = document.createElement('img');
+        img.src = e.target.result;
+
+        const descInput = document.createElement('input');
+        descInput.type = 'text';
+        descInput.placeholder = 'Descripción (máx 15 palabras)';
+        descInput.maxLength = 100; // aprox. 15 palabras
+
+        previewItem.appendChild(img);
+        previewItem.appendChild(descInput);
+        filePreview.appendChild(previewItem);
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+
+  // --- Envío del formulario ---
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const especie = document.getElementById("especie").value.trim();
+    const cantidad = document.getElementById("cantidad").value.trim();
+    const zona = document.getElementById("zona").value.trim();
+    const fecha = document.getElementById("fecha").value;
+    const observaciones = document.getElementById("observaciones").value.trim();
+
+    if (!especie || !cantidad || !zona || !fecha) {
+      alert("Por favor, complete todos los campos obligatorios.");
+      return;
+    }
+
+    if (parseFloat(cantidad) <= 0) {
+      alert("La cantidad debe ser mayor a 0 kg.");
+      return;
+    }
+
+    // Obtener descripciones de las imágenes
+    const previews = document.querySelectorAll('.preview-item input');
+    const imagenes = Array.from(previews).map((input, index) => ({
+      archivo: fileInput.files[index].name,
+      descripcion: input.value.trim()
+    }));
+
+    // Simular guardado exitoso
+    let mensaje = `✓ Captura registrada exitosamente\n\nEspecie: ${especie}\nCantidad: ${cantidad} kg\nZona: ${zona}\nFecha: ${fecha}`;
+    if (imagenes.length > 0) {
+      mensaje += `\n\nImágenes:\n` + imagenes.map(img => `- ${img.archivo}${img.descripcion ? ' (' + img.descripcion + ')' : ''}`).join('\n');
+    }
+
+    alert(mensaje);
+
+    // Limpiar formulario
+    form.reset();
+    fechaInput.value = hoy;
+    filePreview.innerHTML = '';
+    fileNames.textContent = "Ningún archivo seleccionado";
+  });
+});
+</script>
 </body>
 </html>

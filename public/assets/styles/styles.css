@@ -408,3 +408,81 @@ html {
   font-weight: 600;
   font-size: 16px;
 }
+
+/* Contenedor de archivos */
+.file-upload-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Ocultar el input real */
+.file-input {
+  display: none;
+}
+
+/* Botón estilizado */
+.file-btn {
+  padding: 10px 20px;
+  background-color: #004F73;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Montserrat", Bold;
+  font-size: 14px;
+  transition: background 0.3s, transform 0.2s;
+  width: fit-content;
+}
+
+.file-btn:hover {
+  background-color: #4BBFE0;
+  transform: scale(1.05);
+}
+
+/* Contenedor de vista previa de archivos */
+.file-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Cada archivo con imagen y descripción */
+.preview-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f8f8f8;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Miniatura de la imagen */
+.preview-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+}
+
+/* Input de descripción */
+.preview-item input {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: "Montserrat", Medium;
+}
+
+/* Texto por defecto cuando no hay archivos */
+.file-names {
+  font-size: 14px;
+  color: #666;
+  font-family: "Montserrat", Medium;
+}
+

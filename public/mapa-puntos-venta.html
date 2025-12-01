@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapa de Puntos de Venta - FishBack</title>
+    <link rel="stylesheet" href="assets/styles/mapa-puntos-venta.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Alerta de Vedas -->
+    <div class="veda-alert" id="veda-alert">
+      <div class="veda-content">
+        <i class='bx bx-error-circle'></i>
+        <div class="veda-text">
+          <strong>ALERTA DE VEDA:</strong>
+          <span>Anchoveta en veda hasta el 15/01/2026 | Merluza en veda hasta el 28/02/2026</span>
+        </div>
+        <button class="close-veda" id="close-veda">
+          <i class='bx bx-x'></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mapa-container">
+      <a href="../index.html" class="back-button">← Volver al inicio</a>
+
+      <!-- Panel de búsqueda -->
+      <div class="search-panel">
+        <div class="search-header">
+          <h2><i class='bx bx-map'></i> Mapa de Puntos de Venta</h2>
+          <p class="search-subtitle">Encuentra pescadores cerca de ti</p>
+        </div>
+
+        <div class="search-box">
+          <div class="search-input-wrapper">
+            <i class='bx bx-search'></i>
+            <input 
+              type="text" 
+              id="search-input" 
+              placeholder="Buscar por especie (ej: mero, concha de abanico, jurel...)"
+            />
+            <button id="clear-search" class="clear-btn" style="display: none;">
+              <i class='bx bx-x'></i>
+            </button>
+          </div>
+          <button id="search-btn" class="search-btn">
+            <i class='bx bx-search-alt'></i>
+            Buscar
+          </button>
+        </div>
+
+        <div class="filter-chips">
+          <button class="chip active" data-filter="all">
+            <i class='bx bx-globe'></i> Todos
+          </button>
+          <button class="chip" data-filter="cerca">
+            <i class='bx bx-current-location'></i> Cerca de mí
+          </button>
+          <button class="chip" data-filter="abierto">
+            <i class='bx bx-time-five'></i> Abierto ahora
+          </button>
+        </div>
+      </div>
+
+<!-- Área principal con mapa y resultados lado a lado -->
+<div class="main-content">
+  <!-- Mapa simulado con imagen -->
+  <div class="map-area">
+    <div class="map-placeholder">
+      <!-- Imagen del mapa -->
+      <img src="assets/images/mapa-fishback.png" alt="Mapa de Puntos de Venta" class="map-image">
+
+      <!-- Controles del mapa -->
+      <div class="map-controls">
+        <button class="map-control-btn" title="Centrar en mi ubicación">
+          <i class='bx bx-current-location'></i>
+        </button>
+        <button class="map-control-btn" title="Zoom in">
+          <i class='bx bx-plus'></i>
+        </button>
+        <button class="map-control-btn" title="Zoom out">
+          <i class='bx bx-minus'></i>
+        </button>
+      </div>
+
+      <!-- Marcadores sobre la imagen -->
+      <div class="marker marker-1" data-id="1">
+        <i class='bx bxs-map-pin'></i>
+      </div>
+      <div class="marker marker-2" data-id="2">
+        <i class='bx bxs-map-pin'></i>
+      </div>
+      <div class="marker marker-3" data-id="3">
+        <i class='bx bxs-map-pin'></i>
+      </div>
+      <div class="marker marker-4" data-id="4">
+        <i class='bx bxs-map-pin'></i>
+      </div>
+
+      <!-- Leyenda -->
+      <div class="map-legend">
+        <div class="legend-item">
+          <i class='bx bxs-map-pin legend-open'></i>
+          <span>Abierto</span>
+        </div>
+        <div class="legend-item">
+          <i class='bx bxs-map-pin legend-closed'></i>
+          <span>Cerrado</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+          <!-- Lista de resultados -->
+  <div class="results-panel">
+    <div class="results-header">
+      <h3>Puntos de Venta <span id="results-count">(4)</span></h3>
+    </div>
+
+          <div class="results-list" id="results-list">
+            <!-- Card 1 -->
+            <div class="vendor-card" data-id="1" data-especies="anchoveta,bonito,jurel">
+              <div class="card-header">
+                <div class="vendor-info">
+                  <h4>Juan Pérez Castro</h4>
+                  <div class="vendor-rating">
+                    <i class='bx bxs-star'></i>
+                    <span>4.8</span>
+                  </div>
+                </div>
+                <div class="status-badge open">
+                  <i class='bx bx-time-five'></i>
+                  Abierto
+                </div>
+              </div>
+              
+              <div class="card-body">
+                <div class="info-row">
+                  <i class='bx bx-map-pin'></i>
+                  <span>Terminal Pesquero de Callao, Callao</span>
+                </div>
+                <div class="info-row">
+                  <i class='bx bx-time'></i>
+                  <span>06:00 - 14:00 | L-S</span>
+                </div>
+                <div class="info-row">
+                  <i class='bx bx-package'></i>
+                  <span>Anchoveta, Bonito, Jurel</span>
+                </div>
+                <div class="info-row distance">
+                  <i class='bx bx-map'></i>
+                  <span>1.2 km de distancia</span>
+                </div>
+              </div>
+
+              <div class="card-actions">
+                <button class="action-btn secondary view-btn" data-id="1">
+                  <i class='bx bx-show'></i>
+                  Ver detalles
+                </button>
+                <button class="action-btn primary contact-btn" data-id="1">
+                  <i class='bx bx-phone'></i>
+                  Contactar
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="vendor-card" data-id="2" data-especies="mero,corvina,lenguado">
+              <div class="card-header">
+                <div class="vendor-info">
+                  <h4>María González Ramos</h4>
+                  <div class="vendor-rating">
+                    <i class='bx bxs-star'></i>
+                    <span>4.9</span>
+                  </div>
+                </div>
+                <div class="status-badge open">
+                  <i class='bx bx-time-five'></i>
+                  Abierto
+                </div>
+              </div>
+              
+              <div class="card-body">
+                <div class="info-row">
+                  <i class='bx bx-map-pin'></i>
+                  <span>Muelle Pucusana, Pucusana</span>
+                </div>
+                <div class="info-row">
+                  <i class='bx bx-time'></i>
+                  <span>05:00 - 13:00 | L-D</span>
+                </div>
+                <div class="info-row">
+                  <i class='bx bx-package'></i>
+                  <span>Mero, Corvina, Lenguado</span>
+                </div>
+                <div class="info-row distance">
+                  <i class='bx bx-map'></i>
+                  <span>3.5 km de distancia</span>
+                </div>
+              </div>
+
+              <div class="card-actions">
+                <button class="action-btn secondary view-btn" data-id="2">
+                  <i class='bx bx-show'></i>
+                  Ver detalles
+                </button>
+                <button class="action-btn primary contact-btn" data-id="2">
+                  <i class='bx bx-phone'></i>
+                  Contactar
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="vendor-card" data-id="3" data-especies="concha de abanico,calamar,pulpo">
+              <div class="card-header">
+                <div class="vendor-info">
+                  <h4>Carlos Mendoza Ríos</h4>
+                  <div class="vendor-rating">
+                    <i class='bx bxs-star'></i>
+                    <span>4.7</span>
+                  </div>
+                </div>
+                <div class="status-badge closed">
+                  <i class='bx bx-time-five'></i>
+                  Cerrado
+                </div>
+              </div>
+              
+              <div class="card-body">
+                <div class="info-row">
+                  <i class='bx bx-map-pin'></i>
+                  <span>Mercado Central, Chorrillos</span>
+                </div>
+                <div class="info-row">
+                  <i class='bx bx-time'></i>
+                  <span>07:00 - 15:00 | L-V</span>
+                </div>
+                <div class="info-row">
+                  <i class='bx bx-package'></i>
+                  <span>Concha de abanico, Calamar, Pulpo</span>
+                </div>
+                <div class="info-row distance">
+                  <i class='bx bx-map'></i>
+                  <span>5.8 km de distancia</span>
+                </div>
+              </div>
+
+              <div class="card-actions">
+                <button class="action-btn secondary view-btn" data-id="3">
+                  <i class='bx bx-show'></i>
+                  Ver detalles
+                </button>
+                <button class="action-btn primary contact-btn" data-id="3">
+                  <i class='bx bx-phone'></i>
+                  Contactar
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="vendor-card" data-id="4" data-especies="caballa,perico,atún">
+              <div class="card-header">
+                <div class="vendor-info">
+                  <h4>Roberto Silva Torres</h4>
+                  <div class="vendor-rating">
+                    <i class='bx bxs-star'></i>
+                    <span>4.6</span>
+                  </div>
+                </div>
+                <div class="status-badge open">
+                  <i class='bx bx-time-five'></i>
+                  Abierto
+                </div>
+              </div>
+              
+              <div class="card-body">
+                <div class="info-row">
+                  <i class='bx bx-map-pin'></i>
+                  <span>Puerto Ancón, Ancón</span>
+                </div>
+                <div class="info-row">
+                  <i class='bx bx-time'></i>
+                  <span>06:00 - 12:00 | L-S</span>
+                </div>
+                <div class="info-row">
+                  <i class='bx bx-package'></i>
+                  <span>Caballa, Perico, Atún</span>
+                </div>
+                <div class="info-row distance">
+                  <i class='bx bx-map'></i>
+                  <span>8.2 km de distancia</span>
+                </div>
+              </div>
+
+              <div class="card-actions">
+                <button class="action-btn secondary view-btn" data-id="4">
+                  <i class='bx bx-show'></i>
+                  Ver detalles
+                </button>
+                <button class="action-btn primary contact-btn" data-id="4">
+                  <i class='bx bx-phone'></i>
+                  Contactar
+                </button>
+              </div>
+            </div>
+          </div>
+
+    <div class="no-results" id="no-results" style="display: none;">
+      <i class='bx bx-search-alt-2'></i>
+      <p>No se encontraron pescadores con "<span id="search-term"></span>"</p>
+      <button class="reset-btn" id="reset-search">Limpiar búsqueda</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Modal de detalles -->
+    <div class="modal" id="details-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Detalles del Pescador</h3>
+          <button class="close-modal" id="close-details">
+            <i class='bx bx-x'></i>
+          </button>
+        </div>
+        <div class="modal-body" id="modal-details-body">
+          <!-- Contenido dinámico -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de contacto -->
+    <div class="modal" id="contact-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Contactar Pescador</h3>
+          <button class="close-modal" id="close-contact">
+            <i class='bx bx-x'></i>
+          </button>
+        </div>
+        <div class="modal-body" id="modal-contact-body">
+          <!-- Contenido dinámico -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Datos de pescadores
+      const pescadores = {
+        1: {
+          nombre: "Juan Pérez Castro",
+          direccion: "Terminal Pesquero de Callao, Callao",
+          horario: "06:00 - 14:00",
+          dias: "L-S",
+          productos: "Anchoveta, Bonito, Jurel",
+          telefono: "987 654 321",
+          email: "juan.perez@fishback.com",
+          descripcion: "Pescador artesanal con 15 años de experiencia. Venta al por mayor y menor.",
+          calificacion: "4.8"
+        },
+        2: {
+          nombre: "María González Ramos",
+          direccion: "Muelle Pucusana, Pucusana",
+          horario: "05:00 - 13:00",
+          dias: "L-D",
+          productos: "Mero, Corvina, Lenguado",
+          telefono: "965 432 198",
+          email: "maria.gonzalez@fishback.com",
+          descripcion: "Especializada en pesca fina. Producto fresco garantizado.",
+          calificacion: "4.9"
+        },
+        3: {
+          nombre: "Carlos Mendoza Ríos",
+          direccion: "Mercado Central, Chorrillos",
+          horario: "07:00 - 15:00",
+          dias: "L-V",
+          productos: "Concha de abanico, Calamar, Pulpo",
+          telefono: "912 345 678",
+          email: "carlos.mendoza@fishback.com",
+          descripcion: "Mariscos frescos del día. Precios competitivos.",
+          calificacion: "4.7"
+        },
+        4: {
+          nombre: "Roberto Silva Torres",
+          direccion: "Puerto Ancón, Ancón",
+          horario: "06:00 - 12:00",
+          dias: "L-S",
+          productos: "Caballa, Perico, Atún",
+          telefono: "998 765 432",
+          email: "roberto.silva@fishback.com",
+          descripcion: "Pesca de altura. Producto de primera calidad.",
+          calificacion: "4.6"
+        }
+      };
+
+      // Cerrar alerta de veda
+      document.getElementById('close-veda').addEventListener('click', () => {
+        document.getElementById('veda-alert').style.display = 'none';
+      });
+
+      // Búsqueda
+      const searchInput = document.getElementById('search-input');
+      const searchBtn = document.getElementById('search-btn');
+      const clearSearch = document.getElementById('clear-search');
+      const resultsList = document.getElementById('results-list');
+      const noResults = document.getElementById('no-results');
+      const resultsCount = document.getElementById('results-count');
+
+      searchInput.addEventListener('input', () => {
+        clearSearch.style.display = searchInput.value ? 'block' : 'none';
+      });
+
+      clearSearch.addEventListener('click', () => {
+        searchInput.value = '';
+        clearSearch.style.display = 'none';
+        resetSearch();
+      });
+
+      searchBtn.addEventListener('click', performSearch);
+      searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') performSearch();
+      });
+
+      function performSearch() {
+        const term = searchInput.value.toLowerCase().trim();
+        if (!term) return;
+
+        const cards = document.querySelectorAll('.vendor-card');
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const especies = card.dataset.especies.toLowerCase();
+          if (especies.includes(term)) {
+            card.style.display = 'block';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (visibleCount === 0) {
+          noResults.style.display = 'flex';
+          document.getElementById('search-term').textContent = term;
+        } else {
+          noResults.style.display = 'none';
+        }
+
+        resultsCount.textContent = `(${visibleCount})`;
+      }
+
+      function resetSearch() {
+        const cards = document.querySelectorAll('.vendor-card');
+        cards.forEach(card => card.style.display = 'block');
+        noResults.style.display = 'none';
+        resultsCount.textContent = '(4)';
+      }
+
+      document.getElementById('reset-search').addEventListener('click', () => {
+        searchInput.value = '';
+        clearSearch.style.display = 'none';
+        resetSearch();
+      });
+
+      // Ver detalles
+      const detailsModal = document.getElementById('details-modal');
+      const closeDetails = document.getElementById('close-details');
+      const viewBtns = document.querySelectorAll('.view-btn');
+
+      viewBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.id;
+          const pescador = pescadores[id];
+          
+          document.getElementById('modal-details-body').innerHTML = `
+            <div class="detail-section">
+              <div class="detail-row">
+                <strong>Pescador:</strong>
+                <span>${pescador.nombre}</span>
+              </div>
+              <div class="detail-row">
+                <strong>Calificación:</strong>
+                <span><i class='bx bxs-star' style="color: #F5A623;"></i> ${pescador.calificacion}/5.0</span>
+              </div>
+              <div class="detail-row">
+                <strong>Ubicación:</strong>
+                <span>${pescador.direccion}</span>
+              </div>
+              <div class="detail-row">
+                <strong>Horario:</strong>
+                <span>${pescador.horario} | ${pescador.dias}</span>
+              </div>
+              <div class="detail-row">
+                <strong>Productos disponibles:</strong>
+                <span>${pescador.productos}</span>
+              </div>
+              <div class="detail-row">
+                <strong>Descripción:</strong>
+                <span>${pescador.descripcion}</span>
+              </div>
+            </div>
+          `;
+          
+          detailsModal.classList.add('active');
+        });
+      });
+
+      closeDetails.addEventListener('click', () => {
+        detailsModal.classList.remove('active');
+      });
+
+      // Contactar
+      const contactModal = document.getElementById('contact-modal');
+      const closeContact = document.getElementById('close-contact');
+      const contactBtns = document.querySelectorAll('.contact-btn');
+
+      contactBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.id;
+          const pescador = pescadores[id];
+          
+          document.getElementById('modal-contact-body').innerHTML = `
+            <div class="contact-options">
+              <h4>Elige cómo contactar a ${pescador.nombre}:</h4>
+              <a href="tel:${pescador.telefono.replace(/\s/g, '')}" class="contact-option">
+                <i class='bx bx-phone'></i>
+                <div>
+                  <strong>Llamar</strong>
+                  <span>${pescador.telefono}</span>
+                </div>
+              </a>
+              <a href="https://wa.me/51${pescador.telefono.replace(/\s/g, '')}" target="_blank" class="contact-option">
+                <i class='bx bxl-whatsapp'></i>
+                <div>
+                  <strong>WhatsApp</strong>
+                  <span>${pescador.telefono}</span>
+                </div>
+              </a>
+              <a href="mailto:${pescador.email}" class="contact-option">
+                <i class='bx bx-envelope'></i>
+                <div>
+                  <strong>Correo electrónico</strong>
+                  <span>${pescador.email}</span>
+                </div>
+              </a>
+            </div>
+          `;
+          
+          contactModal.classList.add('active');
+        });
+      });
+
+      closeContact.addEventListener('click', () => {
+        contactModal.classList.remove('active');
+      });
+
+      // Cerrar modales al hacer click fuera
+      window.addEventListener('click', (e) => {
+        if (e.target === detailsModal) {
+          detailsModal.classList.remove('active');
+        }
+        if (e.target === contactModal) {
+          contactModal.classList.remove('active');
+        }
+      });
+
+      // Marcadores en el mapa
+      const markers = document.querySelectorAll('.marker');
+      markers.forEach(marker => {
+        marker.addEventListener('click', () => {
+          const id = marker.dataset.id;
+          const card = document.querySelector(`.vendor-card[data-id="${id}"]`);
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          card.style.animation = 'highlight 1s';
+          setTimeout(() => card.style.animation = '', 1000);
+        });
+      });
+
+      // Filtros
+      const chips = document.querySelectorAll('.chip');
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          chips.forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          // Aquí se implementaría la lógica de filtrado
+        });
+      });
+    </script>
+</body>
+</html>

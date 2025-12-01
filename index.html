@@ -108,16 +108,31 @@
             </div>
         </div>
     </section>
+
 <section id="contacto">
   <h2 class="section-title">Contáctanos</h2>
   <p>¿Tienes dudas o quieres saber más sobre FishBack? Escríbenos y te responderemos pronto.</p>
-  <form class="sect-form">
+  <form class="sect-form" id="contact-form">
     <label>Nombre</label><br />
-    <input type="text" required class="input"/><br />
+    <input type="text" required class="input" /><br />
+
     <label>Correo electrónico</label><br />
-    <input type="email"  required class="input" /><br />
+    <input type="email" required class="input" /><br />
+
     <label>Mensaje</label><br />
-    <textarea  required class="input"></textarea><br />
+    <textarea required class="input"></textarea><br />
+
+    <!-- Adjuntar imágenes -->
+    <div class="file-upload-container">
+      <button type="button" class="file-btn">Adjuntar imágenes</button>
+      <input type="file" multiple accept="image/*" class="file-input" style="display:none" />
+    </div>
+
+    <!-- Vista previa de imágenes con campo de descripción -->
+    <div class="file-preview" id="file-preview">
+      Ningún archivo seleccionado
+    </div>
+
     <button type="submit" class="cta-btn">Enviar Mensaje</button>
   </form>
 </section>
@@ -182,5 +197,44 @@
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 <script src="public/assets/scripts/inses.js"></script>
 <script src="public/assets/scripts/menu_toggle.js"></script>
+ <script>
+const fileInput = document.querySelector('.file-input');
+const fileBtn = document.querySelector('.file-btn');
+const filePreview = document.getElementById('file-preview');
+
+fileBtn.addEventListener('click', () => {
+  fileInput.click();
+});
+
+fileInput.addEventListener('change', () => {
+  filePreview.innerHTML = ""; // Limpiar vista previa
+
+  if (fileInput.files.length === 0) {
+    filePreview.textContent = "Ningún archivo seleccionado";
+    return;
+  }
+
+  Array.from(fileInput.files).forEach((file, index) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const div = document.createElement('div');
+      div.classList.add('preview-item');
+
+      const img = document.createElement('img');
+      img.src = e.target.result;
+
+      const descInput = document.createElement('input');
+      descInput.type = "text";
+      descInput.placeholder = "Descripción opcional (máx 15 palabras)";
+      descInput.maxLength = 150; // Aproximadamente 15 palabras
+
+      div.appendChild(img);
+      div.appendChild(descInput);
+      filePreview.appendChild(div);
+    };
+    reader.readAsDataURL(file);
+  });
+});
+  </script>
 </body>
 </html>
