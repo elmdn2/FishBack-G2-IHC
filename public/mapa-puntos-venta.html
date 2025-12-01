@@ -72,60 +72,60 @@
         </div>
       </div>
 
-<!-- Área principal con mapa y resultados lado a lado -->
-<div class="main-content">
-  <!-- Mapa simulado con imagen -->
-  <div class="map-area">
-    <div class="map-placeholder">
-      <!-- Imagen del mapa -->
-      <img src="assets/images/mapa-fishback.png" alt="Mapa de Puntos de Venta" class="map-image">
+      <!-- Área principal -->
+      <div class="main-content">
+        <!-- Mapa -->
+        <div class="map-area">
+          <div class="map-placeholder">
 
-      <!-- Controles del mapa -->
-      <div class="map-controls">
-        <button class="map-control-btn" title="Centrar en mi ubicación">
-          <i class='bx bx-current-location'></i>
-        </button>
-        <button class="map-control-btn" title="Zoom in">
-          <i class='bx bx-plus'></i>
-        </button>
-        <button class="map-control-btn" title="Zoom out">
-          <i class='bx bx-minus'></i>
-        </button>
-      </div>
+            <!-- Imagen del mapa (estática) -->
+            <img src="assets/images/mapa.png" class="map-image" alt="Mapa FishBack">
 
-      <!-- Marcadores sobre la imagen -->
-      <div class="marker marker-1" data-id="1">
-        <i class='bx bxs-map-pin'></i>
-      </div>
-      <div class="marker marker-2" data-id="2">
-        <i class='bx bxs-map-pin'></i>
-      </div>
-      <div class="marker marker-3" data-id="3">
-        <i class='bx bxs-map-pin'></i>
-      </div>
-      <div class="marker marker-4" data-id="4">
-        <i class='bx bxs-map-pin'></i>
-      </div>
+            <!-- Controles del mapa -->
+            <div class="map-controls">
+              <button class="map-control-btn" title="Centrar en mi ubicación">
+                <i class='bx bx-current-location'></i>
+              </button>
+              <button class="map-control-btn" title="Zoom in">
+                <i class='bx bx-plus'></i>
+              </button>
+              <button class="map-control-btn" title="Zoom out">
+                <i class='bx bx-minus'></i>
+              </button>
+            </div>
 
-      <!-- Leyenda -->
-      <div class="map-legend">
-        <div class="legend-item">
-          <i class='bx bxs-map-pin legend-open'></i>
-          <span>Abierto</span>
+            <!-- Marcadores en el mapa -->
+            <div class="marker marker-1" data-id="1">
+              <i class='bx bxs-map-pin'></i>
+            </div>
+            <div class="marker marker-2" data-id="2">
+              <i class='bx bxs-map-pin'></i>
+            </div>
+            <div class="marker marker-3" data-id="3">
+              <i class='bx bxs-map-pin'></i>
+            </div>
+            <div class="marker marker-4" data-id="4">
+              <i class='bx bxs-map-pin'></i>
+            </div>
+
+            <div class="map-legend">
+              <div class="legend-item">
+                <i class='bx bxs-map-pin' style="color: #6BBF59;"></i>
+                <span>Abierto</span>
+              </div>
+              <div class="legend-item">
+                <i class='bx bxs-map-pin' style="color: #F5A623;"></i>
+                <span>Cerrado</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="legend-item">
-          <i class='bx bxs-map-pin legend-closed'></i>
-          <span>Cerrado</span>
-        </div>
-      </div>
-    </div>
-  </div>
 
-          <!-- Lista de resultados -->
-  <div class="results-panel">
-    <div class="results-header">
-      <h3>Puntos de Venta <span id="results-count">(4)</span></h3>
-    </div>
+        <!-- Lista de resultados -->
+        <div class="results-panel">
+          <div class="results-header">
+            <h3>Puntos de Venta <span id="results-count">(4)</span></h3>
+          </div>
 
           <div class="results-list" id="results-list">
             <!-- Card 1 -->
@@ -317,17 +317,18 @@
             </div>
           </div>
 
-    <div class="no-results" id="no-results" style="display: none;">
-      <i class='bx bx-search-alt-2'></i>
-      <p>No se encontraron pescadores con "<span id="search-term"></span>"</p>
-      <button class="reset-btn" id="reset-search">Limpiar búsqueda</button>
+          <div class="no-results" id="no-results" style="display: none;">
+            <i class='bx bx-search-alt-2'></i>
+            <p>No se encontraron pescadores con "<span id="search-term"></span>"</p>
+            <button class="reset-btn" id="reset-search">Limpiar búsqueda</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
     <!-- Modal de detalles -->
     <div class="modal" id="details-modal">
-      <div class="modal-content">
+      <div class="modal-content modal-large">
         <div class="modal-header">
           <h3>Detalles del Pescador</h3>
           <button class="close-modal" id="close-details">
@@ -367,7 +368,14 @@
           telefono: "987 654 321",
           email: "juan.perez@fishback.com",
           descripcion: "Pescador artesanal con 15 años de experiencia. Venta al por mayor y menor.",
-          calificacion: "4.8"
+          calificacion: "4.8",
+          resenas: [
+            { autor: "Carlos Rojas", estrellas: 5, fecha: "15/11/2024", comentario: "Excelente pescador, producto fresco y precio justo. Muy recomendable." },
+            { autor: "Ana María López", estrellas: 5, fecha: "10/11/2024", comentario: "Siempre tiene el mejor pescado. Muy puntual y confiable." },
+            { autor: "Pedro Sánchez", estrellas: 4, fecha: "05/11/2024", comentario: "Buen servicio, aunque a veces se queda sin stock temprano." },
+            { autor: "Lucía Torres", estrellas: 5, fecha: "28/10/2024", comentario: "Gran calidad y atención. Es mi proveedor de confianza." },
+            { autor: "Miguel Vargas", estrellas: 4, fecha: "20/10/2024", comentario: "Producto de calidad, precios competitivos." }
+          ]
         },
         2: {
           nombre: "María González Ramos",
@@ -378,7 +386,13 @@
           telefono: "965 432 198",
           email: "maria.gonzalez@fishback.com",
           descripcion: "Especializada en pesca fina. Producto fresco garantizado.",
-          calificacion: "4.9"
+          calificacion: "4.9",
+          resenas: [
+            { autor: "Roberto Castro", estrellas: 5, fecha: "18/11/2024", comentario: "La mejor pescadora de la zona. Siempre trae pescado de primera." },
+            { autor: "Diana Flores", estrellas: 5, fecha: "12/11/2024", comentario: "Increíble calidad en sus productos. Muy profesional." },
+            { autor: "Jorge Méndez", estrellas: 5, fecha: "08/11/2024", comentario: "Excelente servicio y productos fresquísimos." },
+            { autor: "Carmen Ríos", estrellas: 4, fecha: "01/11/2024", comentario: "Muy buena, aunque sus precios son un poco altos." }
+          ]
         },
         3: {
           nombre: "Carlos Mendoza Ríos",
@@ -389,7 +403,14 @@
           telefono: "912 345 678",
           email: "carlos.mendoza@fishback.com",
           descripcion: "Mariscos frescos del día. Precios competitivos.",
-          calificacion: "4.7"
+          calificacion: "4.7",
+          resenas: [
+            { autor: "Elena Morales", estrellas: 5, fecha: "16/11/2024", comentario: "Los mejores mariscos que he probado. Todo muy fresco." },
+            { autor: "Ricardo Vega", estrellas: 4, fecha: "09/11/2024", comentario: "Buen producto, aunque a veces hay que esperar." },
+            { autor: "Sofía Ruiz", estrellas: 5, fecha: "02/11/2024", comentario: "Mariscos de excelente calidad. Lo recomiendo 100%." },
+            { autor: "Fernando Díaz", estrellas: 4, fecha: "25/10/2024", comentario: "Buena variedad, precios razonables." },
+            { autor: "Patricia Gómez", estrellas: 3, fecha: "18/10/2024", comentario: "Bien, pero he encontrado mejores opciones en otros lugares." }
+          ]
         },
         4: {
           nombre: "Roberto Silva Torres",
@@ -400,7 +421,14 @@
           telefono: "998 765 432",
           email: "roberto.silva@fishback.com",
           descripcion: "Pesca de altura. Producto de primera calidad.",
-          calificacion: "4.6"
+          calificacion: "4.6",
+          resenas: [
+            { autor: "Alberto Ramírez", estrellas: 5, fecha: "14/11/2024", comentario: "Pescado de altura de gran calidad. Muy satisfecho." },
+            { autor: "María José Pérez", estrellas: 4, fecha: "07/11/2024", comentario: "Buen pescador, producto fresco. Recomendado." },
+            { autor: "Javier Luna", estrellas: 5, fecha: "30/10/2024", comentario: "Excelente atención y producto de primera." },
+            { autor: "Claudia Herrera", estrellas: 4, fecha: "22/10/2024", comentario: "Muy buen pescado, aunque los precios varían mucho." },
+            { autor: "Andrés Paredes", estrellas: 3, fecha: "15/10/2024", comentario: "Aceptable, pero esperaba mejor calidad por el precio." }
+          ]
         }
       };
 
@@ -482,6 +510,11 @@
           const id = btn.dataset.id;
           const pescador = pescadores[id];
           
+          // Calcular estadísticas de reseñas
+          const totalResenas = pescador.resenas.length;
+          const estrellasCounts = [0, 0, 0, 0, 0];
+          pescador.resenas.forEach(r => estrellasCounts[r.estrellas - 1]++);
+          
           document.getElementById('modal-details-body').innerHTML = `
             <div class="detail-section">
               <div class="detail-row">
@@ -490,7 +523,7 @@
               </div>
               <div class="detail-row">
                 <strong>Calificación:</strong>
-                <span><i class='bx bxs-star' style="color: #F5A623;"></i> ${pescador.calificacion}/5.0</span>
+                <span><i class='bx bxs-star' style="color: #F5A623;"></i> ${pescador.calificacion}/5.0 (${totalResenas} reseñas)</span>
               </div>
               <div class="detail-row">
                 <strong>Ubicación:</strong>
@@ -509,11 +542,212 @@
                 <span>${pescador.descripcion}</span>
               </div>
             </div>
+
+            <!-- Sección de reseñas -->
+            <div class="reviews-section">
+              <div class="reviews-header">
+                <h4><i class='bx bx-star'></i> Reseñas de Clientes</h4>
+                <button class="add-review-btn" onclick="openReviewForm(${id})">
+                  <i class='bx bx-plus'></i>
+                  Dejar reseña
+                </button>
+              </div>
+
+              <!-- Estadísticas de estrellas -->
+              <div class="rating-stats">
+                <div class="rating-overview">
+                  <div class="rating-number">${pescador.calificacion}</div>
+                  <div class="rating-stars">
+                    ${generateStars(parseFloat(pescador.calificacion))}
+                  </div>
+                  <div class="rating-count">${totalResenas} reseñas</div>
+                </div>
+                <div class="rating-bars">
+                  ${[5, 4, 3, 2, 1].map(star => `
+                    <div class="rating-bar-item">
+                      <span class="star-label">${star} <i class='bx bxs-star'></i></span>
+                      <div class="rating-bar-bg">
+                        <div class="rating-bar-fill" style="width: ${(estrellasCounts[star - 1] / totalResenas * 100)}%"></div>
+                      </div>
+                      <span class="rating-bar-count">${estrellasCounts[star - 1]}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+
+              <!-- Filtros de estrellas -->
+              <div class="review-filters">
+                <button class="filter-star-btn active" data-stars="all" onclick="filterReviews(${id}, 'all')">
+                  <i class='bx bx-list-ul'></i> Todas
+                </button>
+                <button class="filter-star-btn" data-stars="5" onclick="filterReviews(${id}, 5)">
+                  5 <i class='bx bxs-star'></i>
+                </button>
+                <button class="filter-star-btn" data-stars="4" onclick="filterReviews(${id}, 4)">
+                  4 <i class='bx bxs-star'></i>
+                </button>
+                <button class="filter-star-btn" data-stars="3" onclick="filterReviews(${id}, 3)">
+                  3 <i class='bx bxs-star'></i>
+                </button>
+                <button class="filter-star-btn" data-stars="2" onclick="filterReviews(${id}, 2)">
+                  2 <i class='bx bxs-star'></i>
+                </button>
+                <button class="filter-star-btn" data-stars="1" onclick="filterReviews(${id}, 1)">
+                  1 <i class='bx bxs-star'></i>
+                </button>
+              </div>
+
+              <!-- Lista de reseñas -->
+              <div class="reviews-list" id="reviews-list-${id}">
+                ${pescador.resenas.map(resena => `
+                  <div class="review-card" data-stars="${resena.estrellas}">
+                    <div class="review-header">
+                      <div class="review-author">
+                        <div class="author-avatar">${resena.autor.charAt(0)}</div>
+                        <div class="author-info">
+                          <strong>${resena.autor}</strong>
+                          <span class="review-date">${resena.fecha}</span>
+                        </div>
+                      </div>
+                      <div class="review-stars">
+                        ${generateStars(resena.estrellas)}
+                      </div>
+                    </div>
+                    <p class="review-comment">${resena.comentario}</p>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
           `;
           
           detailsModal.classList.add('active');
         });
       });
+
+      function generateStars(rating) {
+        let stars = '';
+        for (let i = 1; i <= 5; i++) {
+          if (i <= rating) {
+            stars += '<i class="bx bxs-star" style="color: #F5A623;"></i>';
+          } else if (i - rating < 1) {
+            stars += '<i class="bx bxs-star-half" style="color: #F5A623;"></i>';
+          } else {
+            stars += '<i class="bx bx-star" style="color: #ddd;"></i>';
+          }
+        }
+        return stars;
+      }
+
+      function filterReviews(pescadorId, filterStars) {
+        const reviewsList = document.getElementById(`reviews-list-${pescadorId}`);
+        const reviewCards = reviewsList.querySelectorAll('.review-card');
+        
+        // Actualizar botones activos
+        const filterBtns = document.querySelectorAll('.filter-star-btn');
+        filterBtns.forEach(btn => btn.classList.remove('active'));
+        event.target.closest('.filter-star-btn').classList.add('active');
+        
+        // Filtrar reseñas
+        reviewCards.forEach(card => {
+          if (filterStars === 'all' || parseInt(card.dataset.stars) === filterStars) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      function openReviewForm(pescadorId) {
+        const pescador = pescadores[pescadorId];
+        
+        // Crear modal para agregar reseña
+        const formModal = document.createElement('div');
+        formModal.className = 'modal active';
+        formModal.id = 'review-form-modal';
+        formModal.innerHTML = `
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>Dejar Reseña para ${pescador.nombre}</h3>
+              <button class="close-modal" onclick="closeReviewForm()">
+                <i class='bx bx-x'></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="review-form" onsubmit="submitReview(event, ${pescadorId})">
+                <div class="form-group">
+                  <label>Tu nombre</label>
+                  <input type="text" id="review-author" required placeholder="Nombre completo">
+                </div>
+                
+                <div class="form-group">
+                  <label>Calificación</label>
+                  <div class="star-rating-input">
+                    <input type="radio" name="rating" value="5" id="star5" required>
+                    <label for="star5"><i class='bx bxs-star'></i></label>
+                    <input type="radio" name="rating" value="4" id="star4">
+                    <label for="star4"><i class='bx bxs-star'></i></label>
+                    <input type="radio" name="rating" value="3" id="star3">
+                    <label for="star3"><i class='bx bxs-star'></i></label>
+                    <input type="radio" name="rating" value="2" id="star2">
+                    <label for="star2"><i class='bx bxs-star'></i></label>
+                    <input type="radio" name="rating" value="1" id="star1">
+                    <label for="star1"><i class='bx bxs-star'></i></label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Tu comentario</label>
+                  <textarea id="review-comment" required rows="4" placeholder="Cuéntanos tu experiencia con este pescador..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-review-btn">
+                  <i class='bx bx-check-circle'></i>
+                  Publicar Reseña
+                </button>
+              </form>
+            </div>
+          </div>
+        `;
+        
+        document.body.appendChild(formModal);
+      }
+
+      function closeReviewForm() {
+        const formModal = document.getElementById('review-form-modal');
+        if (formModal) formModal.remove();
+      }
+
+      function submitReview(event, pescadorId) {
+        event.preventDefault();
+        
+        const autor = document.getElementById('review-author').value;
+        const estrellas = parseInt(document.querySelector('input[name="rating"]:checked').value);
+        const comentario = document.getElementById('review-comment').value;
+        const fecha = new Date().toLocaleDateString('es-PE');
+        
+        // Agregar reseña al array
+        pescadores[pescadorId].resenas.unshift({
+          autor,
+          estrellas,
+          fecha,
+          comentario
+        });
+        
+        // Recalcular calificación promedio
+        const totalEstrellas = pescadores[pescadorId].resenas.reduce((sum, r) => sum + r.estrellas, 0);
+        pescadores[pescadorId].calificacion = (totalEstrellas / pescadores[pescadorId].resenas.length).toFixed(1);
+        
+        // Cerrar modal de formulario
+        closeReviewForm();
+        
+        // Actualizar modal de detalles
+        detailsModal.classList.remove('active');
+        setTimeout(() => {
+          document.querySelector(`.view-btn[data-id="${pescadorId}"]`).click();
+        }, 300);
+        
+        alert('✓ Reseña publicada exitosamente');
+      }
 
       closeDetails.addEventListener('click', () => {
         detailsModal.classList.remove('active');
