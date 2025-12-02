@@ -1185,3 +1185,13 @@ html {
 .btn-azul:hover {
   background-color: #0069d9;
 }
+
+.video {
+  color: #004F73;
+  text-align: center;
+  margin: 50px 0;
+}
+.video iframe {
+  border: 3px solid #004F73;
+  border-radius: 10px;
+}
