@@ -1122,3 +1122,19 @@ html {
 .cta-btn-download i {
   font-size: 1.2rem;
 }
+
+/* Enlace del logo */
+.logo-link {
+  text-decoration: none; /* Quita subrayado */
+  color: inherit;        /* Mantiene el color original */
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transición suave */
+}
+
+/* Efecto hover */
+.logo-link:hover {
+  cursor: pointer;
+  transform: scale(1.05);          /* Aumenta ligeramente */
+}
+
