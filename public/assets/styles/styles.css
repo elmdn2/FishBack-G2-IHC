@@ -751,3 +751,189 @@ html {
 .faq-item.active .arrow {
   transform: rotate(180deg);
 }
+
+/* ======================
+   Temporadas de Pesca
+====================== */
+.temporadas-index {
+  background-color: #f0f4f8; /* color de fondo suave */
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 900px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.temporadas-index .section-title {
+  font-size: 2rem;
+  color: #1e3a8a; /* azul oscuro */
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.temporadas-index p {
+  font-size: 1.1rem;
+  color: #374151; /* gris oscuro */
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.temporadas-index .cta-btn {
+  display: inline-block;
+  background-color: #3b82f6; /* azul principal */
+  color: #fff;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.temporadas-index .cta-btn:hover {
+  background-color: #2563eb; /* azul más oscuro al pasar el mouse */
+  transform: translateY(-2px);
+}
+
+
+/* ===== Temporadas de Pesca ===== */
+.temporadas {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: linear-gradient(180deg, #e0f2fe 0%, #ffffff 100%);
+  border-radius: 1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.temporadas-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.temporadas-intro i {
+  font-size: 3rem;
+  color: #3b82f6;
+  margin-bottom: 0.5rem;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.temporadas-intro h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+.temporadas-intro p {
+  font-size: 1.1rem;
+  color: #475569;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+.temporadas-select {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.temporadas-select label {
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.temporadas-select select {
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  border: 2px solid #3b82f6;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.temporadas-select select:hover {
+  background-color: #f0f9ff;
+  transform: scale(1.03);
+}
+
+/* Grid de especies */
+.especies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+/* Tarjetas con personalidad */
+.especie-card {
+  background: #f8fafc;
+  border-radius: 1rem;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
+  position: relative;
+  border-left: 6px solid #3b82f6;
+}
+
+.especie-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+  background: #f0f9ff;
+}
+
+.especie-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.especie-card:hover img {
+  transform: scale(1.05);
+}
+
+.especie-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.especie-card p {
+  font-size: 0.95rem;
+  color: #475569;
+  margin: 0.25rem 0;
+}
+
+/* Colores por nivel de abundancia */
+.especie-card[data-abundancia="Alto"] {
+  border-left-color: #16a34a; /* verde */
+}
+.especie-card[data-abundancia="Medio"] {
+  border-left-color: #f59e0b; /* amarillo/naranja */
+}
+.especie-card[data-abundancia="Bajo"] {
+  border-left-color: #ef4444; /* rojo */
+}
+

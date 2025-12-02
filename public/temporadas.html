@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FishBack - Regulaciones Pesqueras</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles/styles.css" />
+<link rel="stylesheet" href="assets/styles/menu_toggle.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>
+      <img src="assets/images/logo.png" alt="Logo FishBack" class="logo" />
+      <span class="titulo-texto">FishBack</span>
+    </h1>
+    <nav>
+      <ul class="menu-horizontal">
+<li><a href="../index.html#servicios">Servicios</a></li>
+<li><a href="../index.html#beneficios">Beneficios</a></li>
+<li><a href="../index.html#nosotros">Nosotros</a></li>
+<li><a href="../index.html#contacto">Contacto</a></li>
+<li><a href="soporte.html">Soporte</a></li> <!-- Nuevo enlace -->
+<li id="user-menu">
+  <a href="inses.html" class="cta-btn" id="btn-inses">Ingresa</a>
+</li>
+      </ul>
+      <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+    </nav>
+  </header>
+
+  <div class="back-button">
+  <a href="../index.html" class="cta-btn">
+    <i class='bx bx-left-arrow-alt'></i> Volver al Inicio
+  </a>
+</div>
+
+
+<section class="temporadas">
+  <div class="temporadas-intro">
+    <i class='bx bx-fish'></i>
+    <h2 class="section-title">Temporadas de Pesca y Especies Abundantes</h2>
+    <p>Consulta qué especies están más disponibles según el periodo del año y planifica tus actividades de pesca, compra o venta de manera eficiente y sostenible.</p>
+  </div>
+
+  <!-- Selección de período -->
+  <div class="temporadas-select">
+    <label for="meses">Selecciona un periodo de meses:</label>
+    <select id="meses">
+      <option value="enero-marzo">Enero - Marzo</option>
+      <option value="abril-junio">Abril - Junio</option>
+      <option value="julio-septiembre">Julio - Septiembre</option>
+      <option value="octubre-diciembre">Octubre - Diciembre</option>
+    </select>
+  </div>
+
+  <!-- Panel de especies -->
+  <div class="especies-grid" id="especies-grid">
+    <!-- Las tarjetas se generan dinámicamente con JS -->
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="pie-pagina">
+    <div class="pie-pagina__contenedor contenedor">
+      <div class="pie-pagina__info">
+        <a href="index.html" class="logo pie-pagina__logo">
+          <img src="assets/images/logo.png" class="logo-imagen-pie" alt="FishBack Logo" />
+          Fish<span class="logo__resaltado">Back</span>
+        </a>
+        <p class="pie-pagina__descripcion">
+          Innovación y trazabilidad para una pesca sostenible.
+        </p>
+        <div class="pie-pagina__redes">
+          <a href="#" class="pie-pagina__red-social"><i class="bx bxl-facebook-circle"></i></a>
+          <a href="#" class="pie-pagina__red-social"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="pie-pagina__red-social"><i class="bx bxl-instagram-alt"></i></a>
+          <a href="#" class="pie-pagina__red-social"><i class="bx bxl-linkedin-square"></i></a>
+        </div>
+      </div>
+
+<div class="pie-pagina__navegacion">
+  <h4 class="pie-pagina__subtitulo">Enlaces Rápidos</h4>
+  <ul class="pie-pagina__lista-enlaces">
+    <li><a href="../index.html#servicios" class="pie-pagina__enlace">Servicios</a></li>
+    <li><a href="../index.html#beneficios" class="pie-pagina__enlace">Beneficios</a></li>
+    <li><a href="../index.html#nosotros" class="pie-pagina__enlace">Nosotros</a></li>
+    <li><a href="../index.html#contacto" class="pie-pagina__enlace">Contacto</a></li>
+    <li><a href="soporte.html"class="pie-pagina__enlace">Soporte</a></li>
+  </ul>
+</div>
+
+      <div class="pie-pagina__contacto-info">
+        <h4 class="pie-pagina__subtitulo">Contacto</h4>
+        <p><i class="bx bx-map"></i> Av. Siempre Viva 123, Lima</p>
+        <p><i class="bx bx-phone"></i> +51 987 654 321</p>
+        <p><i class="bx bx-envelope"></i> info@fishback.com</p>
+      </div>
+    </div>
+
+    <div class="pie-pagina__derechos">
+      <div class="pie-pagina__enlaces-legales">
+        <a href="#" class="pie-pagina__enlace-legal">Política de Privacidad</a>
+        <span class="pie-pagina__separador">|</span>
+        <a href="terminos.html" class="pie-pagina__enlace-legal">Términos y Condiciones</a>
+      </div>
+      <p>&copy; <span id="anio-actual"></span> FishBack. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+  const selectPeriodo = document.getElementById('meses');
+  const especiesGrid = document.getElementById('especies-grid');
+
+  const especiesData = [
+    { nombre: "Mero", imagen: "assets/images/mero.jpg", rango: "enero-marzo", abundancia: "Alto" },
+    { nombre: "Langosta", imagen: "assets/images/langosta.png", rango: "enero-marzo", abundancia: "Medio" },
+    { nombre: "Caballa", imagen: "assets/images/caballa.jpg", rango: "abril-junio", abundancia: "Alto" },
+    { nombre: "Atún", imagen: "assets/images/atun.png", rango: "julio-septiembre", abundancia: "Alto" },
+    { nombre: "Camarón", imagen: "assets/images/camaron.jpeg", rango: "octubre-diciembre", abundancia: "Medio" },
+  ];
+
+function renderEspecies(periodo) {
+  especiesGrid.innerHTML = '';
+  especiesData.filter(e => e.rango === periodo).forEach(e => {
+    const div = document.createElement('div');
+    div.className = 'especie-card';
+    div.setAttribute('data-abundancia', e.abundancia); // <-- aquí
+    div.innerHTML = `
+      <img src="${e.imagen}" alt="${e.nombre}" />
+      <h3><i class='bx bx-fish'></i> ${e.nombre}</h3>
+      <p><strong>Rango de fechas:</strong> ${e.rango.replace('-', ' a ')}</p>
+      <p><strong>Nivel de abundancia:</strong> ${e.abundancia}</p>
+    `;
+    especiesGrid.appendChild(div);
+  });
+}
+
+  selectPeriodo.addEventListener('change', () => {
+    renderEspecies(selectPeriodo.value);
+  });
+
+  // Render inicial
+  renderEspecies(selectPeriodo.value);
+</script>
+
+    <script src="assets/scripts/footer.js"></script>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <script src="assets/scripts/menu_toggle.js"></script>
