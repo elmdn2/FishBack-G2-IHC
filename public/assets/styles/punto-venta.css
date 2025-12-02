@@ -1,8 +1,5 @@
 body {
-  background-image: url("playa.avif");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -19,20 +16,23 @@ body {
 
 .back-button {
   position: absolute;
-  top: -45px;
-  left: 0;
-  color: rgb(0, 0, 0);
+  top: 20px;
+  left: -120px; /* lo mueve al lado de la caja */
+  color: #004F73;
   text-decoration: none;
   font-size: 16px;
-  transition: opacity 0.3s;
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 2px solid #004F73;
   font-family: "Montserrat", Bold;
+  transition: all 0.3s ease;
 }
 
 .back-button:hover {
-  opacity: 0.8;
-  background: rgba(175, 173, 173, 0.329);
+  background: #004F73;
+  color: #ffffff;
+  transform: translateX(-5px);
 }
 
 .punto-venta-box {

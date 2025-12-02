@@ -1138,3 +1138,50 @@ html {
   transform: scale(1.05);          /* Aumenta ligeramente */
 }
 
+/* Sección de acceso rápido */
+.acceso-rapido {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  border-bottom: 1px solid #e0e0e0; /* línea sutil */
+}
+
+.acceso-rapido .botones-rapidos {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; /* espacio entre botones */
+  flex-wrap: wrap; /* que se ajusten en móvil */
+  margin-top: 1.5rem;
+}
+
+.btn-rapido {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-rapido:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Colores distintos */
+.btn-verde {
+  background-color: #28a745; /* verde */
+}
+
+.btn-verde:hover {
+  background-color: #218838;
+}
+
+.btn-azul {
+  background-color: #007bff; /* azul */
+}
+
+.btn-azul:hover {
+  background-color: #0069d9;
+}

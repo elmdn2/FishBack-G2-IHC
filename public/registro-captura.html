@@ -15,6 +15,7 @@
     />
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
+
 <body>
     <div class="captura-container">
       <a href="../index.html" class="back-button">← Volver</a>
@@ -203,10 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
     alert(mensaje);
 
     // Limpiar formulario
-    form.reset();
-    fechaInput.value = hoy;
-    filePreview.innerHTML = '';
-    fileNames.textContent = "Ningún archivo seleccionado";
+window.location.href = "punto-venta.html";
   });
 });
 </script>
